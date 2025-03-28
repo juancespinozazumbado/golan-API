@@ -1,0 +1,16 @@
+version: '3.8'
+
+services: 
+   web: 
+      image: '@latest'
+      ports:
+        - "145:124"
+      depends_on:
+          - "app"
+   notify:
+      image: ""  
+   pgdb: 
+     image: ""
+
+
+
