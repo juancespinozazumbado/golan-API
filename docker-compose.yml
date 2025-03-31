@@ -2,15 +2,15 @@ version: '3.8'
 
 services: 
    web: 
-      image: '@latest'
-      ports:
-        - "145:124"
-      depends_on:
-          - "app"
-   notify:
-      image: ""  
+    image: 'image here'
+    ports: 
+      - 80:3000
+    command: "bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start"
+    depends_on:
+     - db
    pgdb: 
-     image: ""
-
-
-
+    image: 'postgres'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=practicedocker
